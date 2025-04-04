@@ -10,7 +10,7 @@ public class conexao {
 		Connection con = null;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3307/montadora";
+			String url = "jdbc:mysql://localhost:3307/Montadora";
 			
 			//"jdbc:mysql://localhost:3306/montadora","root", "*123456HAS*"
 			final String USER = "root";

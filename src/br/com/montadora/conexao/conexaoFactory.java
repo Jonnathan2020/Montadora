@@ -10,7 +10,7 @@ public class conexaoFactory {
 		
 		Connection conexao = null;
 		//Na linha abaixo, estou armazenando o caminho do BD na vari�vel url
-		String url = "jdbc:mysql://localhost:3307/montadora";
+		String url = "jdbc:mysql://localhost:3307/Montadora";
 		conexao = DriverManager.getConnection(url, "root", "*123456HAS*");
 		System.out.println("Abriu a conexão.");
 		conexao.close();

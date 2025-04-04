@@ -5,7 +5,7 @@ import br.com.montadora.conexao.conexao;
 import br.com.montadora.model.Moto;
 import br.com.montadora.dao.MotoDao;
 
-public class MotoInserir {
+public class MotoDeletar {
 	
 	public static void main(String[] args) {
 		Connection con = conexao.abrirConexao();
@@ -14,10 +14,7 @@ public class MotoInserir {
 		MotoDao motodao = new MotoDao(con);
 		
 		moto.setPlaca(12345);
-		moto.setMontadora("HONDA");
-		moto.setModelo("TWISTER");
-		moto.setQtdAdesivos(6);
-		System.out.println(motodao.inserir(moto));
+		System.out.println(motodao.deletar(moto));
 	
 		conexao.fecharConexao(con);
 	}

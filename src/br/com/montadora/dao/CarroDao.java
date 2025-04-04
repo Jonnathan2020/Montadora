@@ -22,13 +22,14 @@ public class CarroDao {
 	}
 	
 	public String inserir(Carro carro) {
-		String sql = "insert into carro(montadora, modelo, qtdPortas) values (?,?,?)";
+		String sql = "insert into carro(placa,montadora, modelo, qtdPortas) values (?,?,?,?)";
 		
 		try {
 			PreparedStatement ps = getCon().prepareStatement(sql);
-			ps.setString(1, carro.getMontadora());
-			ps.setString(2, carro.getModelo());
-			ps.setInt(3, carro.getQtdPortas());
+			ps.setInt(1, carro.getPlaca());
+			ps.setString(2, carro.getMontadora());
+			ps.setString(3, carro.getModelo());
+			ps.setInt(4, carro.getQtdPortas());
 			
 			if (ps.executeUpdate() > 0) {
 				return "Inserido com sucesso";
@@ -43,4 +44,26 @@ public class CarroDao {
 			return e.getMessage();
 		}
 	}
+	
+	public String deletar(Carro carro) {
+		String sql = "delete from carro where placa = ?";
+		
+		try {
+			PreparedStatement ps = getCon().prepareStatement(sql);
+			ps.setInt(1, carro.getPlaca());
+	
+			if (ps.executeUpdate() > 0) {
+				return "Deletado com sucesso";
+			} 
+			else {
+				return "Erro ao deletar";
+			}
+			
+		}
+		
+		 catch (SQLException e) {
+			return e.getMessage();
+		}
+	}
+	
 }

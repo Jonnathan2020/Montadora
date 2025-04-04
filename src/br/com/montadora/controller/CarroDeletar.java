@@ -5,7 +5,7 @@ import br.com.montadora.conexao.conexao;
 import br.com.montadora.model.Carro;
 import br.com.montadora.dao.CarroDao;
 
-public class CarroInserir {
+public class CarroDeletar {
 	
 	public static void main(String[] args) {
 		Connection con = conexao.abrirConexao();
@@ -14,10 +14,7 @@ public class CarroInserir {
 		CarroDao carrodao = new CarroDao(con);
 		
 		carro.setPlaca(54321);
-		carro.setMontadora("GM");
-		carro.setModelo("TRACKER");
-		carro.setQtdPortas(4);
-		System.out.println(carrodao.inserir(carro));
+		System.out.println(carrodao.deletar(carro));
 	
 		conexao.fecharConexao(con);
 	}
